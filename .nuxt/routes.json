@@ -1,0 +1,14 @@
+[
+  {
+    "name": "form",
+    "path": "/form",
+    "component": "C:\\\\Projects\\\\password-manager-web-app\\\\pages\\\\form.vue",
+    "chunkName": "pages/form"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "C:\\\\Projects\\\\password-manager-web-app\\\\pages\\\\index.vue",
+    "chunkName": "pages/index"
+  }
+]
