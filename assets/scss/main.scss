@@ -1,0 +1,6 @@
+@layer reset, abstracts, base, components, layout, pages, utilities;
+
+@import url("floating-vue/dist/style.css") layer(reset.floating-vue);
+
+@import "abstracts/variables";
+@import "abstracts/roots";
