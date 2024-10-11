@@ -1,83 +1,52 @@
-@use 'variables' as v;
+@use 'sass:map';
 
-@layer abstracts.tokens {
-  :root {
-    --theme-background: v.$primary
-  }
+// Define light and dark theme variables
+$theme-colors: (
+  light: (
+    background: #ffffff,
+    text: #121212,
+    primary: #0075d7,
+    secondary: #fda001,
+  ),
+  dark: (
+    background: #121212,
+    text: #ffffff,
+    primary: #badefc,
+    secondary: #ffc627,
+  )
+);
 
-  .dark-mode {
-    /* basic colors */
-    --theme-background: var(--theme-surface-a0);
-    --theme-on-background: 255, 255, 255;
+// Function to retrieve the variable for the current theme
+@function theme($key, $mode: light) {
+  @return map.get(map.get($theme-colors, $mode), $key);
+}
 
-    /* on background colors */
-    --theme-on-primary: #ffffff;
-    --theme-on-primary-inverse: #000000;
-    --theme-on-primary-container: #000000;
-    --theme-on-secondary: #000000;
-    --theme-on-secondary-inverse: #ffffff;
+// Default light theme variables
+:root {
+  --background: #{theme('background')};
+  --text: #{theme('text')};
+  --primary: #{theme('primary')};
+  --secondary: #{theme('secondary')};
+}
 
-    /* surfaces base colors */
-    --#{v.$property-prefix}primary-base: #badefc;
-    --#{v.$property-prefix}surface-base: #121212;
-    --#{v.$property-prefix}surface-base-inverse: #ffffff;
-    --#{v.$property-prefix}secondary-base: #ffc627;
-    --#{v.$property-prefix}accent-base: #fcdbe9;
+// Dark theme variables using the dark-mode class
+.dark-mode {
+  --background: #{theme('background', dark)};
+  --text: #{theme('text', dark)};
+  --primary: #{theme('primary', dark)};
+  --secondary: #{theme('secondary', dark)};
+}
 
-    /* semantic base colors */
-    --#{v.$property-prefix}success-base: #c1ffdb;
-    --#{v.$property-prefix}warning-base: #fbe9c5;
-    --#{v.$property-prefix}danger-base: #f8d4d7;
-    --#{v.$property-prefix}muted-base: #c0c5c9;
+// Apply the theme variables to your styles
+body {
+  background-color: var(--background);
+  color: var(--text);
+}
 
-    --#{v.$property-prefix}tonal-dark-intensity: 70%;
-    --#{v.$property-prefix}tonal-light-intensity: 15%;
+a {
+  color: var(--primary);
+}
 
-    /* default colors */
-    --theme-default: var(--theme-surface-a30);
-    --theme-default-active: #323232;
-
-    /* surface containers colors */
-    --theme-surface-container-lowest: var(--theme-background);
-    --theme-surface-container-low: var(--theme-surface-a10);
-    --theme-surface-container: var(--theme-surface-a20);
-    --theme-surface-container-high: var(--theme-surface-a40);
-    --theme-surface-container-highest: var(--theme-surface-a50);
-
-    --theme-surface-body-pane: var(--theme-surface-a20);
-    --theme-surface-text-field: transparent;
-    --theme-surface-tooltip: #3a3a3a;
-    --theme-surface-kbd: #c2c2c2;
-    --theme-surface-toast: var(--theme-surface-a70);
-
-    /* outline colors */
-    --theme-outline-button: var(--theme-surface-a60);
-    --theme-outline-text-field: var(--theme-surface-a60);
-    --theme-outline-surface: var(--theme-surface-a60);
-
-    /* states colors */
-    --theme-active: #333333;
-    --theme-disabled: #939393;
-    --theme-table-hover: rgba(255, 255, 255, 0.1);
-
-    /* image filters */
-    --theme-img-filter-invert: brightness(0) invert(1);
-    --theme-img-testimonial-filter: grayscale(1) invert(1);
-    --theme-img-testimonial-filter-invert: grayscale(1) invert(0);
-    --theme-frosted-glass-bg: rgba(0, 0, 0, 0.50);
-    --theme-frosted-glass-backdrop-filter: blur(20px) saturate(150%) contrast(100%) brightness(100%);
-
-    /* shadows */
-    --theme-shadow-base: 0 0% 0%;
-
-    /* form icons */
-    --theme-form-select-icon: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" fill="white" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-345 240-585l56-56 184 184 184-184 56 56-240 240Z"/></svg>');
-    --theme-form-checkbox-icon: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" fill="black" height="24" viewBox="0 -960 960 960" width="24"><path d="m382-373.218 328.826-328.826q15.956-15.957 37.826-15.957t37.827 15.957q15.956 15.957 15.956 37.827 0 21.869-15.956 37.826l-366.87 366.87Q403.652-243.565 382-243.565t-37.609-15.956l-170.87-170.87q-15.956-15.957-15.739-37.826.217-21.87 16.174-37.827 15.957-15.957 37.827-15.957 21.869 0 37.826 15.957L382-373.218Z"/></svg>');
-    --theme-form-radio-icon: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" fill="black" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-60.782q-87.522 0-163.906-32.96-76.385-32.96-132.888-89.464-56.504-56.503-89.464-132.888Q60.782-392.478 60.782-480t32.96-163.906q32.96-76.385 89.464-132.888 56.503-56.504 132.888-89.464 76.384-32.96 163.906-32.96t163.906 32.96q76.385 32.96 132.888 89.464 56.504 56.503 89.464 132.888 32.96 76.384 32.96 163.906t-32.96 163.906q-32.96 76.385-89.464 132.888-56.503 56.504-132.888 89.464Q567.522-60.782 480-60.782Z"/></svg>');
-
-    /* surface tones colors */
-    @include m.surface-dark-tones();
-    /* semantic colors */
-    @include m.semantic-dark-tones();
-  }
+button {
+  background-color: var(--secondary);
 }

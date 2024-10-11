@@ -1,6 +1,347 @@
+$property-prefix: theme- !default;
 
-// Theme colors
-$primary: #326dee;
-$secondary: #1ac888;
-$error: #d32752;
-$info: #f6c31c
+// Primary colors
+$primary: #382bf0 !default;
+$secondary: #ffc107 !default;
+$accent: #ffc9e1 !default;
+
+// Semantic colors
+$white: hsl(100, 100%, 100%);
+$black: hsl(0, 0%, 0%);
+$dark: hsl(0, 0%, 7.1%);
+
+$success: hsl(145, 100%, 39%);
+$muted: #52595f;
+$warning: hsl(40, 100%, 50%);
+$info: hsl(240, 100%, 37%);
+$danger: hsl(354, 73%, 51%);
+
+$primary-colors: (
+        'primary': $primary,
+        'secondary': $secondary,
+        'accent': $accent,
+        'overlay': $black,
+        'success': $success,
+        'info': $info,
+        'warning': $warning,
+        'danger': $danger,
+        'muted': $muted,
+);
+
+// Gradients
+$gradient-primary: #0023f7, #382bf0 !default;
+$gradient-pink: #5300fa, #ab068e, #ee5aaf !default;
+$gradient-sunset: #7319fa, #ff33b4, #ff7e29 !default;
+$gradient-neon-green: #4ae17b, #11d181 !default;
+$gradient-cyan: #0adeff, #0a81ff !default;
+$gradient-marathon: #391a41, #a51957, #f5536b !default;
+$gradient-database: #c11ceb, #6f19b5, #25007a !default;
+$gradient-gold: #875919, #a87732, #dbaa64, #f0c588 !default;
+$gradient-heat: #c20ea1, #dd2d7f, #ee4c5e, #f46d41 !default;
+$gradient-energy: #8eb309, #d8ff4a !default;
+$gradient-honey: #ffe572, #c28333 !default;
+$gradient-crimson: #e91e63, #d81557, #aa1145 !default;
+$gradient-majestic: #148ade, #116ab8 !default;
+$gradient-shadow: #404040, #212121 !default;
+$gradient-ghost: #715cff, #6851ff !default;
+$gradient-amethyst: #8200e7, #bf3eff !default;
+
+$gradient-body-primary: var(--theme-on-primary), #382bf0 !default;
+$gradient-body-secondary: var(--theme-on-primary), #ffc107 !default;
+$gradient-body-success: var(--theme-on-primary), #009f42 !default;
+$gradient-body-danger: var(--theme-on-primary), #b41c2b !default;
+
+$gradient-background-primary: transparent, #382bf0 180% !default;
+$gradient-background-success: transparent, #009f42 180% !default;
+$gradient-background-warning: transparent, #ffc107 180% !default;
+$gradient-background-shadow: transparent, #404040 180% !default;
+
+// Color wheel scheme colors
+$scheme-colors: (
+        'Red': hsl(0, 100%, 50%),
+        'Red-Orange': hsl(30, 100%, 50%),
+        'Orange': hsl(39, 100%, 50%),
+        'Yellow-Orange': hsl(45, 100%, 50%),
+        'Yellow': hsl(60, 100%, 50%),
+        'Yellow-Green': hsl(80, 61%, 50%),
+        'Green': hsl(120, 100%, 25%),
+        'Blue-Green': hsl(147, 50%, 47%),
+        'Blue': hsl(240, 100%, 50%),
+        'Blue-Violet': hsl(271, 76%, 53%),
+        'Violet': hsl(274, 100%, 25%),
+        'Red-Violet': hsl(322, 81%, 43%),
+);
+
+// Fonts
+$font-primary: 'Plus Jakarta Sans', "Roboto", -apple-system, "Segoe UI", sans-serif;
+$font-secondary: 'DM Sans', "Roboto", -apple-system, "Segoe UI", sans-serif;
+$font-icons: 'Material Symbols Rounded', sans-serif;
+
+// Font weights
+$fw-400: 400;
+$fw-500: 500;
+$fw-600: 600;
+$fw-700: 700;
+$fw-800: 800;
+
+// Type scale
+$type-h1: (
+        font-family: ($font-primary),
+        font-weight: $fw-800,
+        font-size: var(--fs-100),
+        letter-spacing: 0px,
+        line-height: 1
+);
+
+$type-h2: (
+        font-family: ($font-primary),
+        font-weight: $fw-400,
+        font-size: var(--fs-200),
+        letter-spacing: 0px,
+);
+
+$type-h3: (
+        font-family: ($font-primary),
+        font-weight: $fw-500,
+        font-size: var(--fs-300),
+        letter-spacing: 0px,
+);
+
+$type-h4: (
+        font-family: ($font-secondary),
+        font-weight: $fw-500,
+        font-size: var(--fs-400),
+        letter-spacing: .25px,
+);
+
+$type-h5: (
+        font-family: ($font-secondary),
+        font-weight: $fw-500,
+        font-size: var(--fs-500),
+        letter-spacing: .20px,
+);
+
+$type-h6: (
+        font-family: ($font-secondary),
+        font-weight: $fw-500,
+        font-size: var(--fs-600),
+        letter-spacing: .15px,
+);
+
+$type-body1: (
+        font-family: ($font-secondary),
+        font-weight: $fw-400,
+        font-size: var(--fs-600),
+        letter-spacing: .5px,
+        line-height: 1.5
+);
+
+$type-subtitle1: (
+        font-family: ($font-secondary),
+        font-weight: $fw-400,
+        font-size: var(--fs-sm-100),
+        letter-spacing: .45px,
+);
+
+$type-subtitle2: (
+        font-family: ($font-secondary),
+        font-weight: $fw-400,
+        font-size: var(--fs-sm-300),
+        letter-spacing: .35px,
+);
+
+$type-button: (
+        font-family: ($font-primary),
+        font-weight: $fw-700,
+        font-size: 12px,
+        letter-spacing: 0.16px,
+);
+
+$type-caption: (
+        font-family: ($font-secondary),
+        font-weight: $fw-500,
+        font-size: var(--fs-sm-500),
+        letter-spacing: .5px,
+);
+
+$type-label: (
+        font-family: ($font-primary),
+        font-weight: $fw-600,
+        font-size: var(--fs-sm-400),
+        letter-spacing: -0.01em,
+);
+
+$type-overline: (
+        font-family: ($font-primary),
+        font-weight: $fw-800,
+        font-size: var(--fs-sm-200),
+        letter-spacing: -0.01em,
+);
+
+
+// Fs table
+$fs-table: clamp(0.75rem, 2.5cqw, 0.80rem);
+
+// Border radius
+$border-radius: (
+        0: 0px,
+        4: 4px,
+        6: 6px,
+        8: 8px,
+        12: 12px,
+        25: 25px,
+        50: 50px
+);
+
+$rounded-none: map-get($border-radius, 0);
+$rounded-sm: map-get($border-radius, 6);
+$rounded-md: map-get($border-radius, 8);
+$rounded-lg: map-get($border-radius, 12);
+$rounded-xl: map-get($border-radius, 25);
+$rounded-full: map-get($border-radius, 50);
+
+$card-border-radius: calc(#{$rounded-md} + 6px);
+$form-border-radius: $rounded-md;
+
+// Borders
+$form-border: 1px;
+$border-sm: 1px;
+$border-md: 2px;
+
+// Spaces
+$space-1: 1rem;
+$space-2: 2rem;
+$space-3: 3rem;
+
+$spacing-sizes: (
+        0: 0,
+        1: 0.25rem,
+        2: 0.5rem,
+        3: 1rem,
+        4: 1.5rem,
+        5: 3rem
+);
+
+// Gaps
+$gaps: (
+        0: 0,
+        1: 0.25rem,
+        2: 0.5rem,
+        3: 0.75rem,
+        4: 1rem,
+        5: 1.25rem,
+        6: 1.5rem,
+        7: 1.75rem,
+        8: 2rem,
+        9: 2.25rem,
+        10: 2.5rem
+);
+
+// Breakpoints
+$breakpoints: (
+        1155: 1155px,
+        1024: 1024px,
+        992: 992px,
+        960: 960px,
+        768: 768px,
+        600: 600px,
+        320: 320px,
+);
+
+$grid-breakpoints: (
+        sm: 576px,
+        md: 768px,
+        lg: 992px,
+        xl: 1200px,
+        xxl: 1400px
+);
+
+$media-breakpoints: sm md lg xl xxl;
+
+// Opacity
+$opacity: (
+        0: 0,
+        5: 0.05,
+        10: 0.1,
+        20: 0.2,
+        30: 0.3,
+        40: 0.4,
+        50: 0.5,
+        60: 0.6,
+        70: 0.7,
+        80: 0.8,
+        90: 0.9,
+        100: 1
+);
+
+// Degrees
+$degrees: (
+        0: 0deg,
+        45: 45deg,
+        90: 90deg,
+        135: 135deg,
+        180: 180deg,
+        225: 225deg,
+        270: 270deg,
+        315: 315deg,
+        360: 360deg
+);
+
+// Scales
+$scales: (
+        0: 0,
+        1: 0.25,
+        2: 0.5,
+        3: 0.75,
+        4: 1,
+        5: 1.25
+);
+
+// z-index
+$z-index-navigation: 998;
+$z-index-fab: 999;
+$z-index-menu: 999;
+$z-index-navbar: 999;
+$z-index-fullscreen: 999;
+
+// Spinner
+$spinner-offset: 187;
+$spinner-duration: 1.4s;
+
+// Easing linear functions
+$easing-in-fallback: cubic-bezier(0.05, 0.7, 0.1, 1);
+$easing-out-fallback: cubic-bezier(0.4, 0, 1, 1);
+
+$easing-spring: linear(
+                0, 0.00217 0.5%, 0.00866 1.01%, 0.0346 2.07%, 0.0782 3.2%, 0.14066 4.43%,
+                0.28086 6.651%, 0.72289 12.911%, 0.84164 14.861%, 0.93834 16.722%,
+                1.01676 18.572%, 1.07743 20.432%, 1.12131 22.332%, 1.1373 23.312%,
+                1.14934 24.312%, 1.15904 25.603%, 1.16294 26.953%, 1.16113 28.383%,
+                1.15356 29.933%, 1.14335 31.273%, 1.12887 32.783%, 1.05059 39.614%,
+                1.01677 43.094%, 1.00206, 0.99057 46.975%, 0.98215 48.945%, 0.9766 50.995%,
+                0.9735 53.835%, 0.97488 57.056%, 0.9966 69.827%, 1.00329 76.878%,
+                1.00417 83.808%, 0.99996
+);
+
+$easing-emphasized: linear(
+                0, 0.00245 1.753%, 0.00994 3.55%, 0.01966 4.916%, 0.03415 6.402%,
+                0.05334 7.836%, 0.07376 9.061%, 0.10031 10.32%, 0.12808 11.414%,
+                0.19399 13.366%, 0.27138 14.974%, 0.34403 16.052%, 0.47679 17.475%,
+                0.54434 18.338%, 0.60689 19.389%, 0.66036 20.609%, 0.71671 22.4%,
+                0.76532 24.589%, 0.78755 25.874%, 0.80828 27.285%, 0.84475 30.42%,
+                0.86492 32.632%, 0.88332 35.056%, 0.9002 37.721%, 0.91554 40.622%,
+                0.9295 43.795%, 0.94208 47.239%, 0.95333 50.97%, 0.96327 54.986%,
+                0.9795 64.011%, 0.99095 74.434%, 0.99774 86.373%, 1
+);
+
+$easing-bounce: linear(
+                0, 0.00097 1.13%, 0.0039 2.27%, 0.01566 4.55%, 0.03518, 0.0625 9.091%,
+                0.09779 11.371%, 0.14073, 0.19147, 0.25 18.182%, 0.31664 20.462%, 0.3908,
+                0.47275, 0.5625 27.273%, 0.76538 31.813%, 1 36.364%, 0.94147, 0.89073,
+                0.84779 43.174%, 0.8125 45.455%, 0.78518, 0.76566, 0.75393 52.265%, 0.75098,
+                0.75, 0.75098 55.686%, 0.7539 56.816%, 0.76566 59.096%, 0.78518, 0.8125,
+                0.84761, 0.89052 68.177%, 0.94147 70.457%, 1, 0.97268, 0.95316 77.268%,
+                0.9414 79.548%, 0.93848 80.678%, 0.9375, 0.93848 82.958%, 0.9414 84.088%,
+                0.95309, 0.97258 88.629%, 1 90.909%, 0.98829 93.179%, 0.98537 94.309%,
+                0.98438 95.45%, 0.98533 96.58%, 0.98826 97.72%, 1
+);
