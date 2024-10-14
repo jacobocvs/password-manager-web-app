@@ -73,8 +73,7 @@ $scheme-colors: (
 );
 
 // Fonts
-$font-primary: 'Plus Jakarta Sans', "Roboto", -apple-system, "Segoe UI", sans-serif;
-$font-secondary: 'DM Sans', "Roboto", -apple-system, "Segoe UI", sans-serif;
+$font-primary: "Open sans", -apple-system, "Segoe UI", sans-serif;
 $font-icons: 'Material Symbols Rounded', sans-serif;
 
 // Font weights
@@ -108,28 +107,28 @@ $type-h3: (
 );
 
 $type-h4: (
-        font-family: ($font-secondary),
+        font-family: ($font-primary),
         font-weight: $fw-500,
         font-size: var(--fs-400),
         letter-spacing: .25px,
 );
 
 $type-h5: (
-        font-family: ($font-secondary),
+        font-family: ($font-primary),
         font-weight: $fw-500,
         font-size: var(--fs-500),
         letter-spacing: .20px,
 );
 
 $type-h6: (
-        font-family: ($font-secondary),
+        font-family: ($font-primary),
         font-weight: $fw-500,
         font-size: var(--fs-600),
         letter-spacing: .15px,
 );
 
 $type-body1: (
-        font-family: ($font-secondary),
+        font-family: ($font-primary),
         font-weight: $fw-400,
         font-size: var(--fs-600),
         letter-spacing: .5px,
@@ -137,14 +136,14 @@ $type-body1: (
 );
 
 $type-subtitle1: (
-        font-family: ($font-secondary),
+        font-family: ($font-primary),
         font-weight: $fw-400,
         font-size: var(--fs-sm-100),
         letter-spacing: .45px,
 );
 
 $type-subtitle2: (
-        font-family: ($font-secondary),
+        font-family: ($font-primary),
         font-weight: $fw-400,
         font-size: var(--fs-sm-300),
         letter-spacing: .35px,
@@ -152,13 +151,13 @@ $type-subtitle2: (
 
 $type-button: (
         font-family: ($font-primary),
-        font-weight: $fw-700,
+        font-weight: $fw-600,
         font-size: 12px,
         letter-spacing: 0.16px,
 );
 
 $type-caption: (
-        font-family: ($font-secondary),
+        font-family: ($font-primary),
         font-weight: $fw-500,
         font-size: var(--fs-sm-500),
         letter-spacing: .5px,

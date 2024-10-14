@@ -1,0 +1,279 @@
+@use "sass:map";
+@use 'variables' as v;
+
+// Light tones
+@mixin surface-light-tones() {
+  @supports (color: color-mix(in srgb, white, black)) {
+    /* surfaces */
+    --#{v.$property-prefix}surface-a0: color-mix(in srgb, var(--theme-primary-base), var(--theme-surface-base) 96%);
+    --#{v.$property-prefix}surface-a10: color-mix(in srgb, var(--theme-primary-base), var(--theme-surface-base) 95%);
+    --#{v.$property-prefix}surface-a20: color-mix(in srgb, var(--theme-primary-base), var(--theme-surface-base) 90%);
+    --#{v.$property-prefix}surface-a30: color-mix(in srgb, var(--theme-primary-base), var(--theme-surface-base) 85%);
+    --#{v.$property-prefix}surface-a40: color-mix(in srgb, var(--theme-primary-base), var(--theme-surface-base) 80%);
+    --#{v.$property-prefix}surface-a50: color-mix(in srgb, var(--theme-primary-base), var(--theme-surface-base) 75%);
+    --#{v.$property-prefix}surface-a60: color-mix(in srgb, var(--theme-primary-base), var(--theme-surface-base) 70%);
+  }
+}
+
+@mixin semantic-light-tones() {
+  @supports (color: color-mix(in srgb, white, black)) {
+    /* success */
+    --#{v.$property-prefix}success-a10: color-mix(in srgb, var(--theme-success-base), var(--theme-on-primary) 15%);
+    --#{v.$property-prefix}success-a20: color-mix(in srgb, var(--theme-success-base), var(--theme-on-primary) 20%);
+    --#{v.$property-prefix}success-a30: color-mix(in srgb, var(--theme-success-base), var(--theme-on-primary) 25%);
+
+    /* warning */
+    --#{v.$property-prefix}warning-a10: color-mix(in srgb, var(--theme-warning-base), var(--theme-on-primary) 15%);
+    --#{v.$property-prefix}warning-a20: color-mix(in srgb, var(--theme-warning-base), var(--theme-on-primary) 20%);
+    --#{v.$property-prefix}warning-a30: color-mix(in srgb, var(--theme-warning-base), var(--theme-on-primary) 25%);
+
+    /* danger */
+    --#{v.$property-prefix}danger-a10: color-mix(in srgb, var(--theme-danger-base), var(--theme-on-primary) 15%);
+    --#{v.$property-prefix}danger-a20: color-mix(in srgb, var(--theme-danger-base), var(--theme-on-primary) 20%);
+    --#{v.$property-prefix}danger-a30: color-mix(in srgb, var(--theme-danger-base), var(--theme-on-primary) 25%);
+
+    /* muted */
+    --#{v.$property-prefix}muted-a10: color-mix(in srgb, var(--theme-muted-base), var(--theme-on-primary) 15%);
+    --#{v.$property-prefix}muted-a20: color-mix(in srgb, var(--theme-muted-base), var(--theme-on-primary) 20%);
+    --#{v.$property-prefix}muted-a30: color-mix(in srgb, var(--theme-muted-base), var(--theme-on-primary) 25%);
+  }
+}
+
+// Surface dark tones mixin
+@mixin surface-dark-tones() {
+  @supports (color: color-mix(in srgb, white, black)) {
+    --#{v.$property-prefix}surface-a0: color-mix(in srgb, var(--theme-primary-base), var(--theme-surface-base) 100%);
+    --#{v.$property-prefix}surface-a10: color-mix(in srgb, var(--theme-primary-base), var(--theme-surface-base) 95%);
+    --#{v.$property-prefix}surface-a20: color-mix(in srgb, var(--theme-primary-base), var(--theme-surface-base) 90%);
+    --#{v.$property-prefix}surface-a30: color-mix(in srgb, var(--theme-primary-base), var(--theme-surface-base) 85%);
+    --#{v.$property-prefix}surface-a40: color-mix(in srgb, var(--theme-primary-base), var(--theme-surface-base) 80%);
+    --#{v.$property-prefix}surface-a50: color-mix(in srgb, var(--theme-primary-base), var(--theme-surface-base) 75%);
+    --#{v.$property-prefix}surface-a60: color-mix(in srgb, var(--theme-primary-base), var(--theme-surface-base) 70%);
+    --#{v.$property-prefix}surface-a70: color-mix(in srgb, var(--theme-primary-base), var(--theme-surface-base) 60%);
+  }
+}
+
+// Semantic dark tones mixin
+@mixin semantic-dark-tones() {
+  @supports (color: color-mix(in srgb, white, black)) {
+    /* success */
+    --#{v.$property-prefix}success-a10: color-mix(in srgb, var(--theme-success-base), var(--theme-on-primary) 5%);
+    --#{v.$property-prefix}success-a20: color-mix(in srgb, var(--theme-success-base), var(--theme-on-primary) 10%);
+    --#{v.$property-prefix}success-a30: color-mix(in srgb, var(--theme-success-base), var(--theme-on-primary) 15%);
+
+    /* warning */
+    --#{v.$property-prefix}warning-a10: color-mix(in srgb, var(--theme-warning-base), var(--theme-on-primary) 5%);
+    --#{v.$property-prefix}warning-a20: color-mix(in srgb, var(--theme-warning-base), var(--theme-on-primary) 10%);
+    --#{v.$property-prefix}warning-a30: color-mix(in srgb, var(--theme-warning-base), var(--theme-on-primary) 15%);
+
+    /* danger */
+    --#{v.$property-prefix}danger-a10: color-mix(in srgb, var(--theme-danger-base), var(--theme-on-primary) 5%);
+    --#{v.$property-prefix}danger-a20: color-mix(in srgb, var(--theme-danger-base), var(--theme-on-primary) 10%);
+    --#{v.$property-prefix}danger-a30: color-mix(in srgb, var(--theme-danger-base), var(--theme-on-primary) 15%);
+
+    /* muted */
+    --#{v.$property-prefix}muted-a10: color-mix(in srgb, var(--theme-muted-base), var(--theme-on-primary) 5%);
+    --#{v.$property-prefix}muted-a20: color-mix(in srgb, var(--theme-muted-base), var(--theme-on-primary) 10%);
+    --#{v.$property-prefix}muted-a30: color-mix(in srgb, var(--theme-muted-base), var(--theme-on-primary) 15%);
+  }
+}
+
+/*
+* Containers
+* Generate container with media queries
+*/
+@mixin container {
+  --_container-gutter-x: 1.5rem;
+  --_container-gutter-y: 0;
+
+  margin-inline: auto;
+  padding-inline: calc(var(--_container-gutter-x) * .5);
+  width: 100%;
+
+  @media (min-width: 576px) {
+    max-width: 540px;
+  }
+  @media (min-width: 768px) {
+    max-width: 720px;
+  }
+  @media (min-width: 992px) {
+    max-width: 960px;
+  }
+  @media (min-width: 1200px) {
+    max-width: 1140px;
+  }
+  @media (min-width: 1400px) {
+    max-width: 1320px;
+  }
+}
+
+// Fluid container styles
+@mixin container-fluid {
+  --_container-gutter-x: 1.5rem;
+  --_container-gutter-y: 0;
+
+  margin-inline: auto;
+  padding-inline: calc(var(--_container-gutter-x) * .5);
+  width: 100%;
+}
+
+/*
+* Row
+* Generate row
+*/
+@mixin make-row {
+  --_row-gutter-x: 1.5rem;
+  --_row-gutter-y: 0;
+
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(-1 * var(--_row-gutter-y));
+  margin-right: calc(-.5 * var(--_row-gutter-x));
+  margin-left: calc(-.5 * var(--_row-gutter-x));
+}
+
+/*
+* Columns
+* Generate columns mixin
+*/
+@mixin make-col-ready {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 100%;
+  padding-inline: calc(var(--_row-gutter-x) * .5);
+  margin-top: var(--_row-gutter-y);
+}
+
+@mixin make-col($size, $columns: 12) {
+  flex: 1 1 auto;
+  width: calc(100% * #{$size} / #{$columns});
+  max-width: calc(100% * #{$size} / #{$columns});
+}
+
+// Texts
+@mixin text-color($color) {
+  color: $color;
+}
+
+// Backgrounds
+@mixin bg-color($color) {
+  background-color: $color;
+}
+
+// Media query mixin
+@mixin media-breakpoint-up($size) {
+  @media (min-width: map-get(v.$grid-breakpoints, $size)) {
+    @content;
+  }
+}
+
+// Buttons
+@mixin btn-base() {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+  justify-content: center;
+
+  gap: var(--_btn-gap);
+  border-radius: var(--_btn-radius);
+  padding-block: var(--_btn-gutter-y);
+  padding-inline: var(--_btn-gutter-x);
+
+  background: var(--_btn-bg-color);
+  color: var(--_btn-color);
+  border: v.$border-sm solid var(--_btn-border-color);
+  box-shadow: var(--_btn-shadow);
+
+  font-family: map-get(v.$type-button, font-family);
+  font-weight: map-get(v.$type-button, font-weight);
+  font-size: map-get(v.$type-button, font-size);
+  letter-spacing: map-get(v.$type-button, letter-spacing);
+  text-transform: inherit;
+
+  cursor: pointer;
+  user-select: none;
+  touch-action: manipulation;
+
+  transition: all var(--_btn-easing-duration) var(--_btn-easing-in);
+
+  // If button has an icon add styles to it
+  &:has(i) {
+    gap: .45rem;
+
+    :where(i) {
+      font-size: 1.25rem;
+      font-variation-settings: var(--iw-semi-bold);
+      color: inherit;
+    }
+  }
+
+  &:is(:focus, :active) {
+    --_btn-bg-color: var(--theme-surface-container-highest);
+  }
+}
+
+@mixin btn-size($size) {
+  $size: 'sm' !global;
+
+  @if ($size == 'sm') {
+    --_btn-gutter-x: 0.65rem;
+    --_btn-gutter-y: 0.45rem;
+
+    // Small button font size
+    font-weight: v.$fw-600;
+    font-size: 12px;
+
+    :where(i) {
+      font-size: 1rem;
+    }
+  } @else if ($size == 'lg') {
+    --_btn-gutter-x: 0.85rem;
+    --_btn-gutter-y: 0.75rem;
+
+    // Large button font size
+    font-size: 14px;
+
+    :where(i) {
+      font-size: 1.45rem;
+    }
+  } @else if ($size == 'fab') {
+    --_btn-gutter-x: 1.25rem;
+    --_btn-gutter-y: 1rem;
+
+    // FAB font size
+    font-size: 14px;
+
+    &:has(i) {
+      gap: var(--_btn-gap);
+
+      :where(i) {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
+
+@mixin ripple-color($color) {
+  background-image: radial-gradient(circle, $color 10%, transparent 10.01%);
+}
+
+@mixin form-placeholder($opacity) {
+  $opacity: 35% !default;
+
+  &::placeholder {
+    color: color-mix(in srgb, var(--theme-muted-a10), transparent #{$opacity});
+  }
+
+  &::-webkit-input-placeholder {
+    color: color-mix(in srgb, var(--theme-muted-a10), transparent #{$opacity});
+  }
+
+  &::-moz-placeholder {
+    color: color-mix(in srgb, var(--theme-muted-a10), transparent #{$opacity});
+  }
+
+  &::-ms-input-placeholder {
+    color: color-mix(in srgb, var(--theme-muted-a10), transparent #{$opacity});
+  }
+}
+

@@ -1,0 +1,10 @@
+
+// Apply the theme variables to your styles
+  body {
+    background-color: var(--theme-surface-a0);
+    color: var(--theme-on-primary);
+  }
+
+a {
+  color: var(--theme-on-primary-inverse);
+}

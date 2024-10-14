@@ -1,0 +1,382 @@
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as m;
+
+@layer components.buttons {
+  .btn {
+    --_btn-bg-color: var(--theme-surface-container);
+    --_btn-color: var(--theme-on-primary);
+    --_btn-border: #{v.$border-sm};
+    --_btn-border-color: var(--theme-surface-a40);
+    --_btn-radius: #{v.$rounded-md};
+    --_btn-gutter-x: 10px;
+    --_btn-gutter-y: 10px;
+    --_btn-shadow: var(--shadow-sm);
+    --_btn-easing-in: #{v.$easing-in-fallback};
+    --_btn-easing-duration: 200ms;
+
+    @include m.btn-base();
+
+    &:is(:hover) {
+        --_btn-bg-color: var(--theme-surface-container-highest);
+      }
+    &:is(:active) {
+      scale: 0.95;
+    }
+
+    // Text buttons
+    &.btn-text {
+      --_btn-bg-color: transparent;
+      --_btn-color: var(--theme-primary-base);
+      --_btn-shadow: none;
+      --_btn-border-color: transparent;
+
+      &:is(:active) {
+        scale: 0.95;
+      }
+
+      &:is(.text-neutral) {
+        --_btn-color: var(--theme-on-primary);
+      }
+    }
+
+    &.btn-link {
+      --_btn-bg-color: var(--theme-surface-container);
+      --_btn-color: var(--theme-on-primary);
+      --_btn-shadow: none;
+
+      &:is(:hover) {
+        --_btn-color: var(--theme-primary-a10);
+        --_btn-bg-color: var(--theme-surface-container-high);
+      }
+
+      // Add an active state when the link is active
+      &:is(.router-link-exact-active, .router-link-exact-active) {
+        --_btn-color: var(--theme-primary-a10);
+        --_btn-bg-color: var(--theme-surface-container-highest);
+        --_btn-shadow: var(--shadow-sm);
+      }
+    }
+
+    // Chip buttons
+    &.btn-chip {
+      --_btn-bg-color: transparent;
+      --_btn-border-color: var(--theme-outline-button);
+      --_btn-gap: .5rem;
+      --_btn-radius: #{v.$rounded-md};
+      --_btn-shadow: none;
+
+      @include m.btn-size('sm');
+
+      &:is(:hover) {
+        --_btn-bg-color: var(--theme-surface-container-high);
+        --_btn-shadow: none;
+      }
+
+      &:is(:focus, :active) {
+        --_btn-bg-color: var(--theme-surface-container-high);
+        --_btn-shadow: none;
+      }
+
+      &:is(.chip-text) {
+        --_btn-border-color: transparent;
+      }
+
+      &:is(.chip-active) {
+        --_btn-bg-color: var(--theme-surface-container-high);
+        --_btn-border-color: var(--theme-surface-container-high);
+
+        padding-inline: 1rem;
+
+        // For side sheets
+        &:is(.a40) {
+          --_btn-bg-color: var(--theme-surface-a40);
+          --_btn-border-color: var(--theme-surface-a40);
+        }
+
+        // For modals
+        &:is(.a60) {
+          --_btn-bg-color: var(--theme-surface-a60);
+          --_btn-border-color: var(--theme-surface-a60);
+        }
+      }
+    }
+
+    // Sizes
+    &.btn-sm {
+      @include m.btn-size('sm')
+    }
+
+    &.btn-lg {
+      @include m.btn-size('lg')
+    }
+
+    // Icon
+    &.btn-icon {
+      --_btn-gap: 0;
+      --_btn-radius: #{v.$rounded-full};
+      --_btn-shadow: none;
+      --_btn-icon-compact-size: 1rem;
+
+      aspect-ratio: 1;
+
+      &.shape-sm {
+        --_btn-radius: #{v.$rounded-sm};
+      }
+
+      &.shape-md {
+        --_btn-radius: #{v.$rounded-md};
+      }
+
+      &.compact-sm {
+        --_btn-icon-compact-size: 1rem;
+
+        padding: calc(1rem - 8px);
+
+        i {
+          font-size: var(--_btn-icon-compact-size);
+          font-variation-settings: var(--iw-semi-bold);
+        }
+      }
+
+      &.compact {
+        i {
+          font-size: var(--_btn-icon-compact-size);
+          font-variation-settings: var(--iw-semi-bold);
+        }
+      }
+    }
+
+    // FAB
+    &.btn-fab {
+      --_btn-gutter-x: 0.85rem;
+      --_btn-gutter-y: 0.75rem;
+      --_btn-gap: .5rem;
+      --_btn-radius: calc(#{v.$rounded-lg} + 4px);
+      --_btn-shadow: var(--shadow-lg);
+
+      width: fit-content;
+      height: fit-content;
+      aspect-ratio: 1;
+      animation: scale-in 300ms var(--_btn-easing-in);
+      @include m.btn-size('fab');
+
+      &:has(span) {
+        aspect-ratio: unset;
+      }
+    }
+
+    // CTA
+    &.btn-cta {
+      --_btn-radius: #{v.$rounded-full};
+      --_btn-gutter-x: 2.5rem;
+      --_btn-gutter-y: 1.5rem;
+    }
+
+    // Disabled
+    &:is(:disabled, .disabled) {
+      --_btn-bg-color: var(--theme-surface-disabled);
+      --_btn-color: var(--theme-muted-a10);
+      --_btn-border-color: var(--theme-outline-button);
+      --_btn-shadow: none;
+
+      cursor: not-allowed;
+      opacity: 0.85;
+
+      &:is(:hover, :focus, :active) {
+        --_btn-bg-color: var(--theme-surface-disabled);
+        --_btn-shadow: none;
+
+        scale: none;
+      }
+    }
+
+    // Bounce effect
+    &.btn-bounce {
+      --_btn-easing-in: #{v.$easing-bounce};
+      --_btn-easing-duration: 600ms;
+
+      transition: scale var(--_btn-easing-duration) var(--_btn-easing-in);
+
+      &:is(:hover) {
+        scale: 0.85;
+      }
+    }
+
+    // Block
+    &.btn-block {
+      text-align: center;
+      width: 100%;
+    }
+  }
+
+  // Button Group
+  .btn-group {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.65rem .75rem;
+
+    .btn {
+      margin: 0;
+    }
+  }
+
+  // FAB Group
+  .fab-group {
+    --_btn-fab-position-y: 1.75rem;
+    --_btn-fab-position-x: 1.75rem;
+
+    position: fixed;
+    bottom: var(--_btn-fab-position-y);
+    right: var(--_btn-fab-position-x);
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-end;
+    gap: 1rem;
+    isolation: isolate;
+    z-index: v.$z-index-fab;
+  }
+
+  // Segment Control
+  .segmented-control {
+    --_sc_easing-in: #{v.$easing-in-fallback};
+    --_sc-easing-duration: 200ms;
+
+    display: flex;
+    border: v.$border-sm solid var(--theme-outline-button);
+    //background: var(--theme-surface-container-low);
+    gap: .35rem;
+    padding: .25rem;
+    border-radius: calc(14px - .25rem);
+    position: relative;
+
+    & .v-popper {
+      z-index: 1;
+
+      .btn:is(.btn-chip) {
+        margin: 0;
+        padding-block: 4px;
+
+        &:is(:hover, :focus, :active) {
+          background: transparent;
+        }
+
+        &.segmented-control-active i {
+          color: var(--theme-on-primary-inverse);
+        }
+      }
+    }
+
+    &:has(.segmented-control-active.active-grid) {
+      &:after {
+        translate: calc(100% + 8px);
+      }
+    }
+
+    &:after {
+      --_sc-bg-position: 0;
+
+      position: absolute;
+      content: '';
+      inset-block: 0;
+      left: var(--_sc-bg-position);
+      margin-block: auto;
+      margin-inline: 4px;
+      // Calc the size based on inline margin and segmented control size
+      width: calc(50% - 8px);
+      height: 85%;
+      border-radius: calc(#{v.$rounded-lg} - 4px);
+      background-color: var(--theme-surface-a90);
+      z-index: 0;
+
+      translate: 0;
+      transition: translate var(--_sc-easing-duration) var(--_sc-easing-in);
+    }
+
+    @supports (transition: all 100ms linear(1, 1, 1)) {
+      --_sc-easing-in: #{v.$easing-spring};
+      --_sc-easing-duration: 800ms;
+    }
+  }
+
+  // Ripple effect
+  .ripple {
+    position: relative;
+    overflow: hidden;
+    transform: translate3d(0, 0, 0);
+
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      background-repeat: no-repeat;
+      background-position: 50%;
+      transform: scale(20, 20);
+      opacity: 0;
+      transition: transform .4s, opacity 1s;
+      @include m.ripple-color(v.$white);
+    }
+
+    &.ripple-dark {
+      &:after {
+        @include m.ripple-color(v.$black);
+      }
+    }
+
+    &.ripple-primary {
+      &:after {
+        @include m.ripple-color(v.$primary);
+      }
+    }
+
+    &.ripple-secondary {
+      &:after {
+        @include m.ripple-color(v.$secondary);
+      }
+    }
+
+    &:active {
+      &:after {
+        transform: scale(0, 0);
+        opacity: .3;
+        transition: 0s;
+      }
+    }
+  }
+
+  // Light effect -- Only show on larger screens for performance
+  @media (width >= 1024px) {
+    .shine-light {
+      --_shine-left: -20%;
+      --_shine-display: block;
+
+      position: relative;
+      overflow: clip;
+      animation: shine-light 800ms forwards ease-in-out;
+      animation-delay: 500ms;
+
+      &:after {
+        content: '' !important;
+        display: var(--_shine-display);
+        position: absolute;
+        inset-block: 0;
+        left: var(--_shine-left);
+        height: 100%;
+        width: 10%;
+        background: linear-gradient(45deg, rgba(var(--theme-white-rgba), 20%), rgba(var(--theme-white-rgba), 50%));
+        mix-blend-mode: hard-light;
+        transform: skew(-45deg);
+        transition: left 800ms;
+
+        border-radius: v.$rounded-none;
+        scale: unset;
+        opacity: unset;
+      }
+    }
+  }
+}

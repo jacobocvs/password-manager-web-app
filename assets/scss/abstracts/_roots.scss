@@ -1,52 +1,115 @@
-@use 'sass:map';
+@use 'variables' as v;
+@use 'mixins' as m;
 
-// Define light and dark theme variables
-$theme-colors: (
-  light: (
-    background: #ffffff,
-    text: #121212,
-    primary: #0075d7,
-    secondary: #fda001,
-  ),
-  dark: (
-    background: #121212,
-    text: #ffffff,
-    primary: #badefc,
-    secondary: #ffc627,
-  )
-);
+@layer abstracts.tokens {
+  :root {
+    /* basic colors */
+    --theme-background: var(--theme-surface-a0);
+    --theme-on-background: 18, 18, 18;
 
-// Function to retrieve the variable for the current theme
-@function theme($key, $mode: light) {
-  @return map.get(map.get($theme-colors, $mode), $key);
-}
+    /* on background colors */
+    --theme-on-primary: #000000;
+    --theme-on-primary-inverse: #ffffff;
+    --theme-on-primary-container: #ffffff;
+    --theme-on-secondary: #000000;
+    --theme-on-secondary-inverse: #ffffff;
 
-// Default light theme variables
-:root {
-  --background: #{theme('background')};
-  --text: #{theme('text')};
-  --primary: #{theme('primary')};
-  --secondary: #{theme('secondary')};
-}
+    /* surfaces base colors */
+    --#{v.$property-prefix}primary-base: #520100;
+    --#{v.$property-prefix}surface-base: #ffffff;
+    --#{v.$property-prefix}secondary-base: #010101;
+    --#{v.$property-prefix}accent-base: #ffc9e1;
 
-// Dark theme variables using the dark-mode class
-.dark-mode {
-  --background: #{theme('background', dark)};
-  --text: #{theme('text', dark)};
-  --primary: #{theme('primary', dark)};
-  --secondary: #{theme('secondary', dark)};
-}
+    /* semantic base colors */
+    --#{v.$property-prefix}success-base: #009f42;
+    --#{v.$property-prefix}warning-base: #ffbb14;
+    --#{v.$property-prefix}danger-base: #b41c2b;
+    --#{v.$property-prefix}muted-base: #52595f;
 
-// Apply the theme variables to your styles
-body {
-  background-color: var(--background);
-  color: var(--text);
-}
+    /* shadows */
+    --theme-shadow-base: 250 50% 10%;
+    --theme-shadow-intensity: 1%;
 
-a {
-  color: var(--primary);
-}
+    --shadow-sm: 0 3px 5px -2px hsl(var(--theme-shadow-base) / calc(var(--theme-shadow-intensity) + 3%)),
+    0 7px 14px -5px hsl(var(--theme-shadow-base) / calc(var(--theme-shadow-intensity) + 5%));
 
-button {
-  background-color: var(--secondary);
+    --shadow-md: 0 -1px 3px 0 hsl(var(--theme-shadow-base) / calc(var(--theme-shadow-intensity) + 2%)),
+    0 4px 12px -5px hsl(var(--theme-shadow-base) / calc(var(--theme-shadow-intensity) + 5%)),
+    0 12px 15px -5px hsl(var(--theme-shadow-base) / calc(var(--theme-shadow-intensity) + 7%));
+
+    --shadow-lg: 0 -2px 5px 0 hsl(var(--theme-shadow-base) / calc(var(--theme-shadow-intensity) + 2%)),
+    0 9px 9px -2px hsl(var(--theme-shadow-base) / calc(var(--theme-shadow-intensity) + 5%)),
+    0 16px 16px -2px hsl(var(--theme-shadow-base) / calc(var(--theme-shadow-intensity) + 6%));
+
+    --shadow-xl: 0 -1px 2px 0 hsl(var(--theme-shadow-base) / calc(var(--theme-shadow-intensity) + 2%)),
+    0 2px 1px -2px hsl(var(--theme-shadow-base) / calc(var(--theme-shadow-intensity) + 3%)),
+    0 5px 5px -2px hsl(var(--theme-shadow-base) / calc(var(--theme-shadow-intensity) + 3%)),
+    0 10px 10px -2px hsl(var(--theme-shadow-base) / calc(var(--theme-shadow-intensity) + 4%)),
+    0 20px 20px -2px hsl(var(--theme-shadow-base) / calc(var(--theme-shadow-intensity) + 5%));
+
+    /* surface containers colors */
+    --theme-surface-container-lowest: var(--theme-background);
+    --theme-surface-container-low: var(--theme-surface-a10);
+    --theme-surface-container: var(--theme-surface-a20);
+    --theme-surface-container-high: var(--theme-surface-a30);
+    --theme-surface-container-highest: var(--theme-surface-a40);
+
+    --theme-surface-body-pane: #ffffff;
+    --theme-surface-text-field: transparent;
+    --theme-surface-tooltip: #212121;
+    --theme-surface-kbd: #636367;
+    --theme-surface-toast: #212121;
+
+    // Apply light tones in light mode
+    @include m.surface-light-tones();
+    @include m.semantic-light-tones();
+  }
+
+  .dark-mode {
+    /* basic colors */
+    --theme-background: var(--theme-surface-a0);
+    --theme-on-background: 255, 255, 255;
+
+    /* on background colors */
+    --theme-on-primary: #ffffff;
+    --theme-on-primary-inverse: #000000;
+    --theme-on-primary-container: #000000;
+    --theme-on-secondary: #000000;
+    --theme-on-secondary-inverse: #ffffff;
+
+    /* surfaces base colors */
+    --#{v.$property-prefix}primary-base: #fff68f;
+    --#{v.$property-prefix}surface-base: #0c0c0c;;
+    --#{v.$property-prefix}surface-base-inverse: #ffffff;
+    --#{v.$property-prefix}secondary-base: #a3a195;
+    --#{v.$property-prefix}accent-base: #fcdbe9;
+
+    /* semantic base colors */
+    --#{v.$property-prefix}success-base: #c1ffdb;
+    --#{v.$property-prefix}warning-base: #fbe9c5;
+    --#{v.$property-prefix}danger-base: #f8d4d7;
+    --#{v.$property-prefix}muted-base: #c0c5c9;
+
+    /* shadows */
+    --theme-shadow-base: 0 0% 0%;
+
+    /* surface containers colors */
+    --theme-surface-container-lowest: var(--theme-background);
+    --theme-surface-container-low: var(--theme-surface-a10);
+    --theme-surface-container: var(--theme-surface-a20);
+    --theme-surface-container-high: var(--theme-surface-a30);
+    --theme-surface-container-highest: var(--theme-surface-a40);
+
+    --theme-surface-body-pane: #ffffff;
+    --theme-surface-text-field: transparent;
+    --theme-surface-tooltip: #212121;
+    --theme-surface-kbd: #636367;
+    --theme-surface-toast: #212121;
+  }
+
+  // Apply dark tones in dark mode
+  .dark-mode {
+    @include m.surface-dark-tones();
+    @include m.semantic-dark-tones();
+  }
 }

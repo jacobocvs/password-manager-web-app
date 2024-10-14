@@ -19,7 +19,6 @@ useSeoMeta({
  * Data
  */
 
-
 /**
  * Mounted
  */
@@ -28,16 +27,20 @@ useSeoMeta({
 /**
  * Methods
  */
-
-
 </script>
 
 <template>
   <div>
-    <div class="container-fluid px-0">
-      <button class="btn btn-chip">
-        asd
+    <div>
+      <button class="btn">
+        Something just got here
       </button>
+      <button class="btn btn-text">
+        Something just got here
+      </button>
+    </div>
+    <div class="container">
+      <p>something got here</p>
     </div>
   </div>
 </template>
