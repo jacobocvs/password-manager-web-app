@@ -3,16 +3,16 @@
 
 // Light tones
 @mixin surface-light-tones() {
-  @supports (color: color-mix(in srgb, white, black)) {
-    /* surfaces */
-    --#{v.$property-prefix}surface-a0: color-mix(in srgb, var(--theme-primary-base), var(--theme-surface-base) 96%);
-    --#{v.$property-prefix}surface-a10: color-mix(in srgb, var(--theme-primary-base), var(--theme-surface-base) 95%);
-    --#{v.$property-prefix}surface-a20: color-mix(in srgb, var(--theme-primary-base), var(--theme-surface-base) 90%);
-    --#{v.$property-prefix}surface-a30: color-mix(in srgb, var(--theme-primary-base), var(--theme-surface-base) 85%);
-    --#{v.$property-prefix}surface-a40: color-mix(in srgb, var(--theme-primary-base), var(--theme-surface-base) 80%);
-    --#{v.$property-prefix}surface-a50: color-mix(in srgb, var(--theme-primary-base), var(--theme-surface-base) 75%);
-    --#{v.$property-prefix}surface-a60: color-mix(in srgb, var(--theme-primary-base), var(--theme-surface-base) 70%);
-  }
+  //@supports (color: color-mix(in srgb, white, black)) {
+  //  /* surfaces */
+  //  --#{v.$property-prefix}surface-a0: color-mix(in srgb, var(--theme-primary-base), var(--theme-surface-base) 96%);
+  //  --#{v.$property-prefix}surface-a10: color-mix(in srgb, var(--theme-primary-base), var(--theme-surface-base) 95%);
+  //  --#{v.$property-prefix}surface-a20: color-mix(in srgb, var(--theme-primary-base), var(--theme-surface-base) 90%);
+  //  --#{v.$property-prefix}surface-a30: color-mix(in srgb, var(--theme-primary-base), var(--theme-surface-base) 85%);
+  //  --#{v.$property-prefix}surface-a40: color-mix(in srgb, var(--theme-primary-base), var(--theme-surface-base) 80%);
+  //  --#{v.$property-prefix}surface-a50: color-mix(in srgb, var(--theme-primary-base), var(--theme-surface-base) 75%);
+  //  --#{v.$property-prefix}surface-a60: color-mix(in srgb, var(--theme-primary-base), var(--theme-surface-base) 70%);
+  //}
 }
 
 @mixin semantic-light-tones() {
@@ -41,16 +41,16 @@
 
 // Surface dark tones mixin
 @mixin surface-dark-tones() {
-  @supports (color: color-mix(in srgb, white, black)) {
-    --#{v.$property-prefix}surface-a0: color-mix(in srgb, var(--theme-primary-base), var(--theme-surface-base) 100%);
-    --#{v.$property-prefix}surface-a10: color-mix(in srgb, var(--theme-primary-base), var(--theme-surface-base) 95%);
-    --#{v.$property-prefix}surface-a20: color-mix(in srgb, var(--theme-primary-base), var(--theme-surface-base) 90%);
-    --#{v.$property-prefix}surface-a30: color-mix(in srgb, var(--theme-primary-base), var(--theme-surface-base) 85%);
-    --#{v.$property-prefix}surface-a40: color-mix(in srgb, var(--theme-primary-base), var(--theme-surface-base) 80%);
-    --#{v.$property-prefix}surface-a50: color-mix(in srgb, var(--theme-primary-base), var(--theme-surface-base) 75%);
-    --#{v.$property-prefix}surface-a60: color-mix(in srgb, var(--theme-primary-base), var(--theme-surface-base) 70%);
-    --#{v.$property-prefix}surface-a70: color-mix(in srgb, var(--theme-primary-base), var(--theme-surface-base) 60%);
-  }
+  //@supports (color: color-mix(in srgb, white, black)) {
+  //  --#{v.$property-prefix}surface-a0: color-mix(in srgb, var(--theme-primary-base), var(--theme-surface-base) 100%);
+  //  --#{v.$property-prefix}surface-a10: color-mix(in srgb, var(--theme-primary-base), var(--theme-surface-base) 95%);
+  //  --#{v.$property-prefix}surface-a20: color-mix(in srgb, var(--theme-primary-base), var(--theme-surface-base) 90%);
+  //  --#{v.$property-prefix}surface-a30: color-mix(in srgb, var(--theme-primary-base), var(--theme-surface-base) 85%);
+  //  --#{v.$property-prefix}surface-a40: color-mix(in srgb, var(--theme-primary-base), var(--theme-surface-base) 80%);
+  //  --#{v.$property-prefix}surface-a50: color-mix(in srgb, var(--theme-primary-base), var(--theme-surface-base) 75%);
+  //  --#{v.$property-prefix}surface-a60: color-mix(in srgb, var(--theme-primary-base), var(--theme-surface-base) 70%);
+  //  --#{v.$property-prefix}surface-a70: color-mix(in srgb, var(--theme-primary-base), var(--theme-surface-base) 60%);
+  //}
 }
 
 // Semantic dark tones mixin

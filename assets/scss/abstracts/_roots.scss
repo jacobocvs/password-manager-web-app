@@ -4,7 +4,7 @@
 @layer abstracts.tokens {
   :root {
     /* basic colors */
-    --theme-background: var(--theme-surface-a0);
+    --theme-background: var(--theme-surface-a10);
     --theme-on-background: 18, 18, 18;
 
     /* on background colors */
@@ -15,10 +15,18 @@
     --theme-on-secondary-inverse: #ffffff;
 
     /* surfaces base colors */
-    --#{v.$property-prefix}primary-base: #520100;
+    --#{v.$property-prefix}primary-base: #16423C;
     --#{v.$property-prefix}surface-base: #ffffff;
     --#{v.$property-prefix}secondary-base: #010101;
     --#{v.$property-prefix}accent-base: #ffc9e1;
+
+    /* Green ligth theme */
+    --#{v.$property-prefix}surface-a60: #16423C;
+    --#{v.$property-prefix}surface-a50: #6A9C89;
+    --#{v.$property-prefix}surface-a40: #55AD9B;
+    --#{v.$property-prefix}surface-a30: #95D2B3;
+    --#{v.$property-prefix}surface-a20: #E3E3E3;
+    --#{v.$property-prefix}surface-a10: #F6F5F5;
 
     /* semantic base colors */
     --#{v.$property-prefix}success-base: #009f42;
@@ -49,10 +57,10 @@
 
     /* surface containers colors */
     --theme-surface-container-lowest: var(--theme-background);
-    --theme-surface-container-low: var(--theme-surface-a10);
-    --theme-surface-container: var(--theme-surface-a20);
-    --theme-surface-container-high: var(--theme-surface-a30);
-    --theme-surface-container-highest: var(--theme-surface-a40);
+    --theme-surface-container-low: var(--theme-surface-a20);
+    --theme-surface-container: var(--theme-surface-a30);
+    --theme-surface-container-high: var(--theme-surface-a40);
+    --theme-surface-container-highest: var(--theme-surface-a50);
 
     --theme-surface-body-pane: #ffffff;
     --theme-surface-text-field: transparent;
@@ -67,7 +75,7 @@
 
   .dark-mode {
     /* basic colors */
-    --theme-background: var(--theme-surface-a0);
+    --theme-background: var(--theme-surface-a10);
     --theme-on-background: 255, 255, 255;
 
     /* on background colors */
@@ -78,11 +86,19 @@
     --theme-on-secondary-inverse: #ffffff;
 
     /* surfaces base colors */
-    --#{v.$property-prefix}primary-base: #fff68f;
-    --#{v.$property-prefix}surface-base: #0c0c0c;;
+    --#{v.$property-prefix}primary-base: #6BA3BE;
+    --#{v.$property-prefix}surface-base: #0c0c0c;
     --#{v.$property-prefix}surface-base-inverse: #ffffff;
     --#{v.$property-prefix}secondary-base: #a3a195;
     --#{v.$property-prefix}accent-base: #fcdbe9;
+
+    /* Green dark theme */
+    --#{v.$property-prefix}surface-a10: #031716;
+    --#{v.$property-prefix}surface-a20: #032F30;
+    --#{v.$property-prefix}surface-a30: #274D60;
+    --#{v.$property-prefix}surface-a40: #0A7075;
+    --#{v.$property-prefix}surface-a50: #0C969C;
+    --#{v.$property-prefix}surface-a60: #6BA3BE;
 
     /* semantic base colors */
     --#{v.$property-prefix}success-base: #c1ffdb;
@@ -90,15 +106,36 @@
     --#{v.$property-prefix}danger-base: #f8d4d7;
     --#{v.$property-prefix}muted-base: #c0c5c9;
 
+    /* default colors */
+    --theme-default: var(--theme-surface-a30);
+    --theme-default-active: #323232;
+
+    /* outline colors */
+    --theme-outline-button: var(--theme-surface-a60);
+    --theme-outline-text-field: var(--theme-surface-a60);
+    --theme-outline-surface: var(--theme-surface-a60);
+
+    /* states colors */
+    --theme-active: #333333;
+    --theme-disabled: #939393;
+    --theme-table-hover: rgba(255, 255, 255, 0.1);
+
+    /* image filters */
+    --theme-img-filter-invert: brightness(0) invert(1);
+    --theme-img-testimonial-filter: grayscale(1) invert(1);
+    --theme-img-testimonial-filter-invert: grayscale(1) invert(0);
+    --theme-frosted-glass-bg: rgba(0, 0, 0, 0.50);
+    --theme-frosted-glass-backdrop-filter: blur(20px) saturate(150%) contrast(100%) brightness(100%);
+
     /* shadows */
     --theme-shadow-base: 0 0% 0%;
 
     /* surface containers colors */
     --theme-surface-container-lowest: var(--theme-background);
-    --theme-surface-container-low: var(--theme-surface-a10);
-    --theme-surface-container: var(--theme-surface-a20);
-    --theme-surface-container-high: var(--theme-surface-a30);
-    --theme-surface-container-highest: var(--theme-surface-a40);
+    --theme-surface-container-low: var(--theme-surface-a20);
+    --theme-surface-container: var(--theme-surface-a30);
+    --theme-surface-container-high: var(--theme-surface-a50);
+    --theme-surface-container-highest: var(--theme-surface-a60);
 
     --theme-surface-body-pane: #ffffff;
     --theme-surface-text-field: transparent;
